@@ -9,6 +9,7 @@
 
 namespace  app\admin\controller;
 
+use app\admin\model\admin;
 use think\Controller;
 
 class Login extends Controller
@@ -31,17 +32,18 @@ class Login extends Controller
         $re = $this->request;
 
 
-        //处理post请求
+//        //处理post请求
         if ($re->isPost()) {
-
-
-//            return $re->param();   //返回console.log(e){mobile: "13245678910", password: "123456"}   __proto__: Object
-
+//
+//
+////            return $re->param();   //返回console.log(e){mobile: "13245678910", password: "123456"}   __proto__: Object
+//
 
             //接受数据
             $data = $re->only(['mobile', 'password']);
+//            return print_r($data,true);exit;   // 返回view模板的login目录下的in.html的第93行， Array([mobile]=>13245678910 [password]=>123456)
 
-            //自定规则
+            //验证规则
 
             $rule = [
                 'mobile' => 'require|mobile',
@@ -59,9 +61,10 @@ class Login extends Controller
 
             $info = $this->validate($data, $rule, $msg);
 
+            //$info 不为真，
             if ($info !== true) {
 
-                //如果输入数据类型格式不对，返回 前端index.html文件的 console.log(e)
+                //如果输入数据类型格式不对，返回view模板的login目录下的in.html文件的 console.log(e)
                 //返回的数据为 {code: 0, msg: "手机号填写有误", data: "", url: "", wait: 3}
                 //输入正确，返回 undefined
                 return $this->error($info);
@@ -72,16 +75,16 @@ class Login extends Controller
             /**
             app\admin\model\admin Object
             (
-            [data] => Array
-            (
-            [id] => 1
-            [mobile] => 13245678910
-            [password] => $2y$10$tBeeCB8ZkslsvMCjcm8FB.IIZ4H6pg3V0365PlcuHjiLfvc.1EQ/e
-            )
+                [data] => Array
+                    (
+                        [id] => 1
+                        [mobile] => 13245678910
+                        [password] => $2y$10$tBeeCB8ZkslsvMCjcm8FB.IIZ4H6pg3V0365PlcuHjiLfvc.1EQ/e
+                    )
 
-            [relation] => Array
-            (
-            )
+                [relation] => Array
+                    (
+                    )
 
             )
              * return print_r($admin,true);   返回的是个数组对象
@@ -102,6 +105,7 @@ class Login extends Controller
             } else {
                 $this->error('你输入的手机号或密码有误');
             }
+
         }
 
 

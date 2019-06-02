@@ -60,8 +60,8 @@ class Index extends Controller
             $name = $re->param('name');
             $pid = $re->param('pid', 0);
 
-            if (mb_strlen($name, 'utf-8') > 10 || mb_strlen($name, 'utf-8') < 2){
-                $this->error('分类名称长度应在2-10位之间');
+            if (mb_strlen($name, 'utf-8') > 10 || mb_strlen($name, 'utf-8') < 1){
+                $this->error('分类名称长度应在1-10位之间');
             }
             //同一个父级下不能重名
             $where = ['pid'=>$pid, 'name'=>$name];

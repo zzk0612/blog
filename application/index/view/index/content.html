@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://imshusheng.com/php/159.html -->
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta property="wb:webmaster" content="7ced367539b594e3">
+
+
+    <title>BK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="php,linux,composer">
+    <meta name="author" content="渔歌">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/static/ui/css/common.css">
+    <script src="/static/ui/js/hm.js"></script>
+    <script src="/static/ui/js/jquery.min.js"></script>
+    <script src="https://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=433135"></script>
+</head>
+<body id="body">
+<div id="wrap">
+    <div role="navigation" class="navbar navbar-default navbar-static-top topnav">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="{:url('index/Index/sy')}" class="navbar-brand">BK</a>
+            </div>
+            <div id="top-navbar-collapse" class="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{:url('index/Index/index')}">首页</a></li>
+                    {foreach $list as $v}
+                    <li ><a href="{:url('index/Index/title',['id'=>$v['id']])}">{$v.name}</a></li>
+                    {/foreach}
+
+                </ul>
+                <div class="navbar-right">
+                    <form method="get" action="" accept-charset="UTF-8"
+                          id="search-form" class="navbar-form navbar-left" onsubmit="return false;">
+                        <div class="form-group">
+                            <input class="form-control search-input mac-style" id="search-word" placeholder="请输入要搜索的关键词"
+                                   name="word" type="text">
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav github-login">
+                        <a class="btn btn-info login-btn" id="search">搜索</a>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-9 topics-show">
+            <div class="topic panel panel-default">
+                <div class="infos panel-heading">
+                    <div class="pull-right avatar_large">
+                    </div>
+                    <h1 class="panel-title topic-title">{$info.title}</h1>
+                    <div class="meta inline-block">
+                        分类：
+                        <a target="_blank" class="remove-padding-left"
+                           href="{:url('index/Index/content',['id'=>$info['category_id']])}">{$info.category.name}</a>
+                        <span title="2015-08-06 21:33:32" class="timeago">{$info.create_time|date='Y-m-d H:i:s'}</span>
+                        &nbsp;•&nbsp;浏览量：{$info.hits}
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="content-body entry-content panel-body">
+                    <div class="markdown-body" id="emojify">
+                        <!--728*90内容广告-->
+                        <p>
+                            <a href="https://www.vultr.com/?ref=7734841">
+                                <img src="/static/ui/img/banner_1.png" width="728" height="90"></a>
+                        </p>
+
+                        {$info.content|raw}
+                        <p><br></p></div>
+                    <div class="ribbon">
+                        <div class="ribbon-excellent">
+                            <i class="fa fa-trophy">文章标签：</i>
+                            <a target="_blank" href="">php</a>，&nbsp;
+                            <a target="_blank" href="">linux</a>，&nbsp;
+                            <a target="_blank" href="">composer</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer operate">
+                    <div class="pull-left" style="font-size:15px;">
+                    </div>
+                    <div class="pull-right">
+                        <div class="bdsharebuttonbox">
+                            <a href="https://imshusheng.com/php/159.html#" class="bds_more" data-cmd="more"></a>
+                            <a
+                                href="https://imshusheng.com/php/159.html#"
+                                class="bds_qzone" data-cmd="qzone"
+                                title="分享到QQ空间"></a><a
+                                href="https://imshusheng.com/php/159.html#" class="bds_tsina" data-cmd="tsina"
+                                title="分享到新浪微博"></a><a href="https://imshusheng.com/php/159.html#" class="bds_weixin"
+                                                       data-cmd="weixin" title="分享到微信"></a><a
+                                href="https://imshusheng.com/php/159.html#" class="bds_twi" data-cmd="twi"
+                                title="分享到Twitter"></a><a href="https://imshusheng.com/php/159.html#" class="bds_fbook"
+                                                          data-cmd="fbook" title="分享到Facebook"></a><a
+                                href="https://imshusheng.com/php/159.html#" class="bds_linkedin" data-cmd="linkedin"
+                                title="分享到linkedin"></a>
+                        </div>
+                        <script>window._bd_share_config = {
+                                "common": {
+                                    "bdSnsKey": {},
+                                    "bdText": "",
+                                    "bdMini": "2",
+                                    "bdMiniList": ["mshare", "bdysc", "tqf", "tieba", "douban", "sqq", "youdao", "mail"
+                                        , "copy", "print"],
+                                    "bdPic": "",
+                                    "bdStyle": "0",
+                                    "bdSize": "16"
+                                    }, "share": {}
+                            };
+                            with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script'))
+                                .src = 'https://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+                        </script>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!--/content-->
+            <div class="replies panel panel-default list-panel replies-index">
+                <div class="panel-heading">
+                    <div class="total">用户评论: <b></b></div>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group row">
+                        <li class="list-group-item media" style="margin-top: 0px;">
+                            <div class="infos">
+                                <div class="media-heading meta">
+                                    <abbr class="remove-padding-left author"> 游客37097 </abbr>
+                                    <span> •  </span>
+                                    <abbr class="timeago">2017-02-11 22:54:35</abbr>
+                                    <span class="operate pull-right" data-user="游客37097" data-first-id="95">
+                            <a style="cursor:pointer;" class="fa fa-reply first" title="回复游客37097："></a>
+                        </span>
+                                </div>
+                                <div class="media-body markdown-reply content-body">
+                                    <p>packagist.cn的镜像好像不在维护了，https://pkg.phpcomposer.com/的好像在维护着！</p>
+                                    <ul class="list-group row">
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item media" style="margin-top: 0px;">
+                            <div class="infos">
+                                <div class="media-heading meta">
+                                    <abbr class="remove-padding-left author"> 游客13834 </abbr>
+                                    <span> •  </span>
+                                    <abbr class="timeago">2019-05-31 09:23:47</abbr>
+                                    <span class="operate pull-right" data-user="游客13834" data-first-id="1135">
+                            <a style="cursor:pointer;" class="fa fa-reply first" title="回复游客13834："></a>
+                        </span>
+                                </div>
+                                <div class="media-body markdown-reply content-body">
+                                    <p>我来评论一下</p>
+                                    <ul class="list-group row">
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- Pager -->
+                    <div class="pull-right" style="padding-right:20px"></div>
+                </div>
+            </div><!-- Reply Box -->
+            <!--<div class="reply-box form box-block">-->
+                <!--<form method="POST" action="{:url('index/Index/add_comment')}" accept-charset="UTF-8" id="reply-form">-->
+                    <!--<input type="hidden" value="159" id="id">-->
+                    <!--<div class="form-group">-->
+                        <!--<input name="nickname" type="text" disabled class="form-control" id="{$info.id}"-->
+                               <!--value=""-->
+                               <!--placeholder="请输入您的昵称">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<textarea class="form-control" name="content" rows="5" id="reply-content" placeholder="请输入您的评论" cols="50"-->
+                                  <!--style="word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>-->
+                    <!--</div>-->
+                    <!--<div class="form-group status-post-submit">-->
+                        <!--<input class="btn btn-primary" id="reply-create-submit" type="submit" value="确定回复">-->
+                        <!--<input class="btn btn-default" id="reply-create-reset" type="button" value="回复博主">-->
+                    <!--</div>-->
+                    <!--<div class="box preview markdown-reply" id="preview-box" style="display:none;"></div>-->
+                <!--</form>-->
+            <!--</div>-->
+        </div>
+
+        <div class="col-md-3 side-bar">
+            <!--分类下相邻的文章列表-->
+            <div class="panel panel-default corner-radius">
+                <div class="panel-heading text-center">
+                    <h3 class="panel-title">该分类下相邻文章</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="article-list">
+                        <li><a target="_blank" title="php composer 添加中国镜像的方法"
+                               href="https://imshusheng.com/php/160.html">php composer 添加...</a></li>
+                        <li><a target="_blank" title="laravel5.1默认安装后首页访问速度很慢"
+                               href="https://imshusheng.com/php/166.html">laravel5.1默认安装后...</a></li>
+                        <li><a target="_blank" title="laravel路由(基本版)" href="https://imshusheng.com/php/167.html">laravel路由(基本版)</a>
+                        </li>
+                        <li><a target="_blank" title="laravel中间件"
+                               href="https://imshusheng.com/php/168.html">laravel中间件</a></li>
+                        <li><a target="_blank" title="laravel路由（路由群组）" href="https://imshusheng.com/php/169.html">laravel路由（路由群组）</a>
+                        </li>
+                        <li><a target="_blank" title="PHP 一致性哈希算法的一种简单实现" href="https://imshusheng.com/php/158.html">PHP
+                            一致性哈希算法的一种简...</a></li>
+                        <li><a target="_blank" title="PHP动态实例化一个含有命名空间的类对象的几种方法"
+                               href="https://imshusheng.com/php/157.html">PHP动态实例化一个含有命名空...</a></li>
+                        <li><a target="_blank" title="linux下zabbix服务端的安装" href="https://imshusheng.com/php/154.html">linux下zabbix服务端...</a>
+                        </li>
+                        <li><a target="_blank" title="使用nginx做反向代理及负载均衡" href="https://imshusheng.com/php/148.html">使用nginx做反向代理及负载...</a>
+                        </li>
+                        <li><a target="_blank" title="php5.4/5.5/5.6新增特性" href="https://imshusheng.com/php/140.html">php5.4/5.5/5.6新...</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <style>.sidebarAD {
+                padding: 1px;
+            }</style>
+            <div class="panel panel-default corner-radius ">
+                <div class="panel-heading text-center">
+                    <h3 class="panel-title">博主微信号</h3>
+                </div>
+                <div class="panel-body sidebarAD">
+                    <img src="/static/ui/img/1.png" style="weight:250px;height:250px;">
+                </div>
+            </div>
+
+            <!--<xxx file="Common/sidebarAD" />-->
+            <!--最新文章-->
+            <div class="panel panel-default corner-radius">
+                <div class="panel-heading text-center">
+                    <h3 class="panel-title">最新文章</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="article-list">
+                        <li><a target="_blank" title="以后估计还会继续写博客" href="">以后估计还会继续写博客</a></li>
+                        <li><a target="_blank" title="docker的入门使用" href="https://imshusheng.com/linux/238.html">docker的入门使用</a>
+                        </li>
+                        <li><a target="_blank" title="戚风蛋糕的做法以及可能出现的问题及其原因分析"
+                               href="https://imshusheng.com/fenxiang/237.html">戚风蛋糕的做法以及可能出现的问...</a></li>
+                        <li><a target="_blank" title="手机发现不了小米净化器2" href="https://imshusheng.com/zakan/236.html">手机发现不了小米净化器2</a>
+                        </li>
+                        <li><a target="_blank" title="PHP CLI模式下的多进程应用" href="https://imshusheng.com/php/235.html">PHP
+                            CLI模式下的多进程应...</a></li>
+                        <li><a target="_blank" title="phpstorm创建编辑远程项目" href="https://imshusheng.com/php/234.html">phpstorm创建编辑远程项...</a>
+                        </li>
+                        <li><a target="_blank" title="CentOS 6.x 下安装Chrome浏览器"
+                               href="https://imshusheng.com/linux/233.html">CentOS 6.x 下安装C...</a></li>
+                        <li><a target="_blank"
+                               title="安装libevent后在使用的时候报错PHP Startup: Unable to load dynamic library &#39;/usr/lib/php/modules/libevent.so&#39;"
+                               href="https://imshusheng.com/php/232.html">安装libevent后在使用的...</a></li>
+                        <li><a target="_blank" title="webstorm使用emmet语法"
+                               href="https://imshusheng.com/fenxiang/231.html">webstorm使用emmet...</a></li>
+                        <li><a target="_blank" title=" Echo.js纯JavaScript图片延时加载插件的一些参数说明"
+                               href="https://imshusheng.com/qianduan/230.html"> Echo.js纯JavaSc...</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--统计信息-->
+            <div class="panel panel-default corner-radius">
+                <div class="panel-heading text-center">
+                    <h3 class="panel-title">统计信息</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li>文章总数: 214</li>
+                        <li>总浏览量: 3489498</li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!--友情链接-->
+            <div class="panel panel-default corner-radius">
+                <div class="panel-heading text-center">
+                    <h3 class="panel-title">友情链接</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li><a target="_blank" href="http://xuebuting.com/">学编程·学不停</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <!--/sidebar-->
+    </div>
+</div>
+
+<!--<div id="footer" class="footer">-->
+<!--<div class="container small">-->
+<!--<p class="pull-left">-->
+<!--<i class="fa fa-heart-o"></i> I Love biancheng<br>-->
+<!--&nbsp;<i class="fa fa-lightbulb-o"></i> Inspired by v2ex &amp; imshusheng.-->
+<!--</p>-->
+<!--<p class="pull-right">-->
+<!--<i class="fa fa-cloud"></i> Powered by-->
+<!--<a href="https://www.linode.com/?r=02460dee6eb950c0693efe74a9fc3b8591d5c15e" target="_blank">Linode-->
+<!--<i class="fa fa-external-link"></i>-->
+<!--</a>.-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+
+<a id="scrollUp" style="position: fixed; z-index: 2147483647; display: none;">Scroll to top</a>
+
+<script>
+
+</script>
+</body>
+</html>

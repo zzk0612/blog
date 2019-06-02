@@ -21,11 +21,14 @@ Route::rule('in','index/Sign/in')->method('GET,POST');
 
 
 
-
-
 //后台用户登录的路由
 Route::rule('login', 'admin/Login/in')->method('GET,POST');
 
+
+
+Route::group('', function (){
+
+    Route::get('logout', 'admin/Login/out');
 //后台首页
 Route::get('admin$', 'admin/Index/index');
 
@@ -55,4 +58,19 @@ Route::post('admin-article-upload-image','admin/Article/uploadImage');
 
 Route::rule('admin-article-umupload-image','admin/Article/umUploadImage')->method('GET,POST');
 
-Route::get('news/[:id]$','Index/index/news');
+
+})->middleware('Login');
+
+
+
+
+
+
+Route::get('sy/[:id]$','index/index/sy');
+Route::get('content/[:id]$','index/index/content');
+Route::get('title/[:id]','index/index/title');
+//限制变量的规则，可选参数不收规则限制
+//Route::get('news/:id','Index/index/news')->pattern(['id'=>'\d+']);
+//Route::get('news/:id','Index/index/news',[],['id'=>'\d+']);
+Route::get('content/index/[:id]','Index/index/content');
+Route::get('about/:id','Index/index/about');

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta property="wb:webmaster" content="7ced367539b594e3">
+
+    <title>BK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="书生博客,书生程序员,php学习,mysql学习,linux学习,phpstorm,php,laravel,centos,python,javascript">
+    <meta name="author" content="书生">
+    <meta name="description" content="书生博客，是水货PHP程序员“书生”同学记录他学习工作中遇到的问题，代码如诗，人生如歌，在诗歌中遨游，永远不会累！">
+    <link rel="stylesheet" href="/static/ui/css/common.css">
+    <script src="/static/ui/js/hm.js"></script>
+    <script src="/static/ui/js/jquery.min.js"></script>
+</head>
+<body>
+<div>
+    <div role="navigation" class="navbar navbar-default navbar-static-top topnav">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="{:url('index/Index/sy')}" class="navbar-brand">BK</a>
+            </div>
+            <div id="top-navbar-collapse" class="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{:url('index/Index/sy')}">首页</a></li>
+                    {foreach $info as $v}
+                    <li><a href="{:url('index/Index/title',['id'=>$v['id']])}">{$v.name}</a></li>
+                    {/foreach}
+                </ul>
+                <div class="navbar-right">
+                    <form method="get" action="https://imshusheng.com/" accept-charset="UTF-8" id="search-form"
+                          class="navbar-form navbar-left" onsubmit="return false;">
+                        <div class="form-group">
+                            <input class="form-control search-input mac-style" id="search-word"
+                                   placeholder="请输入要搜索的关键词" name="word" type="text">
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav github-login">
+                        <a class="btn btn-info login-btn" id="search">搜索</a>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--/header-->
+    <div class="container">
+        <div class="col-md-9 topics-index">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-body remove-padding-horizontal">
+                    <ul class="list-group row topic-list">
+                        {foreach $list as $v}
+                        <li class="list-group-item media 1" style="margin-top: 0px;">
+
+                            <a  class="on">
+                                <span class="badge badge-reply-count" title="浏览量："></span>
+                            </a>
+
+                            <div class="infos">
+                                <div class="media-heading">
+                                    <a target="_blank" href="{:url('index/Index/content')}" title="{$v.title}">
+                                        {$v.title}</a>
+                                </div>
+                                <div class="media-body meta">
+                                    <span>分类</span>
+                                    <a href="" title="分类：分享"> 分享 </a>
+                                    <a href="" title="分类：服务器"> 服务器 </a>
+                                    <span> • </span>发布时间
+                                    {$v.create_time|date='Y-m-d'}
+                                </div>
+                            </div>
+                        </li>
+                        {/foreach}
+                    </ul>
+                </div>
+                <div class="panel-footer text-right remove-padding-horizontal pager-footer">
+                    <ul class="pagination">
+                        <li class="active"><span>1</span></li>
+                        <li><a rel="nofollow" class="num" href="https://imshusheng.com/page/2/">2</a></li>
+                        <li><a rel="nofollow" class="num" href="{:url('admin/Article/sy')}">3</a></li>
+                        <li><a rel="nofollow" class="num" href="">4</a></li>
+                        <li><a rel="nofollow" class="num" href="">5</a></li>
+                        <li><a rel="nofollow" class="num" href="">6</a></li>
+                        <li><a rel="nofollow" class="next" href="">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3 side-bar">
+            <!--热门标签列表-->
+            <div class="panel panel-default corner-radius">
+                <div class="panel-heading text-center">
+                    <h3 class="panel-title">热门标签</h3>
+                </div>
+                <div class="panel-body" style="padding-top: 5px;">
+                    <style>
+                        #hot-tags{list-style-type: none;padding-left: 5px;}
+                        #hot-tags li{display: inline;float: left; margin-right: 5px;margin-left: 5px;}
+                    </style>
+                    <ul id="hot-tags">
+                        <style>
+                            .my-li{ margin-bottom: 2px; }
+                            .my-label{   display: inline;padding: .2em .6em .3em;font-size: 75%;font-weight:
+                                    700;line-height: 1;color: #fff;text-align: center;white-space: nowrap;vertical-align:
+                                    baseline;border-radius: .25em;z-index: 10;}
+                        </style>
+                        <li class="my-li">
+                            <a class="my-label label-danger" target="_blank" href="https://imshusheng.com/tag/php/">php</a>
+                        </li>
+                        <li class="my-li">
+                            <a class="my-label label-primary" target="_blank" href="https://imshusheng.com/tag/linux/">linux</a>
+                        </li>
+
+                        <li class="my-li">
+                            <a class="my-label label-primary" target="_blank" href="https://imshusheng.com/tag/nginx/">nginx</a>
+                        </li>
+                        <li class="my-li">
+                            <a class="my-label label-info" target="_blank" href="https://imshusheng.com/tag/python/">python</a>
+                        </li>
+                        <li class="my-li">
+                            <a class="my-label label-warning" target="_blank" href="https://imshusheng.com/tag/phpstorm/">phpstorm</a>
+                        </li>
+
+                        <li class="my-li">
+                            <a class="my-label label-success" target="_blank" href="https://imshusheng.com/tag/mysql/">mysql</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <style>.sidebarAD{padding: 1px;}</style>
+            <div class="panel panel-default corner-radius ">
+                <div class="panel-heading text-center">
+                    <h3 class="panel-title">作者公众号</h3>
+                </div>
+                <div class="panel-body sidebarAD">
+                    <img src="/static/ui/img/1.png" style="weight:230px;height:230px;">
+                </div>
+            </div>
+
+            <!--最近一年文章浏览排行-->
+            <div class="panel panel-default corner-radius">
+                <div class="panel-heading text-center">
+                    <h3 class="panel-title">最近一年排行</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="article-list">
+                        <li>
+                            <a target="_blank" title="docker的入门使用"
+                            href="https://imshusheng.com/linux/238.html">docker的入门使用</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--友情链接-->
+            <div class="panel panel-default corner-radius">
+                <div class="panel-heading text-center">
+                    <h3 class="panel-title">友情链接</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li><a target="_blank" href="">BK博客</a></li>
+                        <li><a target="_blank" href="http://xuebuting.com/">学编程·学不停</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--<div class="clearfix"></div>-->
+    </div>
+
+</div>
+
+<div id="footer" class="footer">
+    <div class="container small">
+        <p class="pull-left">
+            <i class="fa fa-heart-o"></i> I Love BK<br>
+            &nbsp;<i class="fa fa-lightbulb-o"></i> Inspired by v2ex &amp; phphub.
+        </p>
+        <p class="pull-right">
+            <i class="fa fa-cloud"></i> Powered by
+            <a href="https://www.linode.com/?r=02460dee6eb950c0693efe74a9fc3b8591d5c15e" target="_blank">Linode
+                <i class="fa fa-external-link"></i>
+            </a>
+        </p>
+    </div>
+</div>
+
+<a id="scrollUp" style="position: fixed; z-index: 2147483647; display: none;">Scroll to top</a>
+
+<script>
+    $(function(){
+        $('#search').click(function(){
+            var word = $('#search-word').val();
+            if(word.length<1){
+                alert('您没有输入任何内容')
+            }else{
+                window.location.href = '/search/'+word;
+            }
+            //return false;
+        })
+    })
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b570dd5882cbd1b968215dc5fd541b30";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body></html>
